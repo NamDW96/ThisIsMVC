@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.kosa.action.Action;
 import kr.or.kosa.action.ActionForward;
+import kr.or.kosa.service.MemberAddService;
+import kr.or.kosa.service.MemberDeleteService;
+import kr.or.kosa.service.MemberListService;
+import kr.or.kosa.service.MemberSearchListByNameService;
+import kr.or.kosa.service.MemberUpdateService;
+import kr.or.kosa.service.MvcLoginService;
 
 @WebServlet("*.do")
 public class MemberController extends HttpServlet {
@@ -39,31 +45,31 @@ public class MemberController extends HttpServlet {
     	System.out.println("urlcommand : " + urlcommand);
     	
     	Action action=null;
-    	ActionForward forward=null;
+    	ActionForward forward=null;    	
     	
-    	if(urlcommand.equals("/memberadd.do")) {
+    	if(urlcommand.equals("/register.do")) {
     	    // 회원가입
-    	    action = new MemberAddServiceAction();
+    	    action = new MemberAddService();
     	    forward = action.execute(request, response);
     	} else if(urlcommand.equals("/mcvlogin.do")) {
     	    // 로그인
-    	    action = new MvcLoginServiceAction();
+    	    action = new MvcLoginService();
     	    forward = action.execute(request, response);
     	} else if(urlcommand.equals("/memberlist.do")) {
     	    // 회원정보
-    	    action = new MemberListServiceAction();
+    	    action = new MemberListService();
     	    forward = action.execute(request, response);
-    	} else if(urlcommand.equals("/membersearch.do")) {
+    	} else if(urlcommand.equals("/memberlist.do")) {
     	    // 회원검색
-    	    action = new MemberSearchServiceAction();
+    	    action = new MemberSearchListByNameService();
     	    forward = action.execute(request, response);
     	} else if(urlcommand.equals("/memberupdate.do")) {
     	    // 회원수정
-    	    action = new MemberUpdateServiceAction();
+    	    action = new MemberUpdateService();
     	    forward = action.execute(request, response);
     	} else if(urlcommand.equals("/memberdelete.do")) {
     	    // 회원삭제
-    	    action = new MemberDeleteServiceAction();
+    	    action = new MemberDeleteService();
     	    forward = action.execute(request, response);
     	}
     	

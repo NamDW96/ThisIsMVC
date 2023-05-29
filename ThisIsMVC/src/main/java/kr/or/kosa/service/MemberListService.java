@@ -18,10 +18,11 @@ public class MemberListService implements Action {
 		KoreaMemberDao dao = new KoreaMemberDao();
 		List<KoreaMember> memberList = dao.getMemberList();
 		request.setAttribute("memberList", memberList);
+		request.setAttribute("pagePath", "/WEB-INF/views/memberlist.jsp");
   
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/WEB-INF/views/redirect.jsp"); //동우가 만들었겠지
+		forward.setPath("/main.jsp"); //동우가 만들었겠지
   
 		return forward;
 	}

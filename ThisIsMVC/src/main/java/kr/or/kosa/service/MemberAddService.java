@@ -38,19 +38,17 @@ public class MemberAddService implements Action {
   	  String msg="";
   	  String url="";
   	  if(result > 0) {
-  		  msg="회원가입 성공";
-  		  url="MemoList.memo"; //요청 서블릿 주소
+  		  msg="회원가입 성공";  		  
   	  }else {
-  		  msg="회원가입 실패";
-  		  url="memo.html";
+  		  msg="회원가입 실패";  		  
   	  }
   	  
-  	  request.setAttribute("board_msg", msg);
-  	  request.setAttribute("board_url", url);
+  	  request.setAttribute("board_msg", msg);  	  
+  	  request.setAttribute("pagePath", "/WEB-INF/views/joinForm.jsp");
   	  
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);
-  	  forward.setPath("/WEB-INF/views/redirect.jsp"); //동우가 만들었겠지
+  	  forward.setPath("/main.jsp"); //동우가 만들었겠지
   	  
   	  return forward;
 	}
