@@ -20,4 +20,5 @@ public class KoreaMember {
 	private int age;
 	private String gender;
 	private String email;
+	private String ip;
 }
