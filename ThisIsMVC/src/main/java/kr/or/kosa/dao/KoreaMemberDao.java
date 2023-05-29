@@ -76,6 +76,42 @@ public class KoreaMemberDao {
 			}
 			return isKoreaMemberId;
 		}
+		
+		public KoreaMember getKoreaMemberById(String id) {
+			KoreaMember m = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "select id,pwd,name,age,gender,email,ip from koreaMember where id=? ";
+			Connection conn = null;
+			try {
+				  conn = ConnectionHelper.getConnection("oracle");
+				  pstmt = conn.prepareStatement(sql);
+				  pstmt.setString(1, id);
+				  		
+				  rs = pstmt.executeQuery();
+				  if(rs.next()) {
+					  //id, password 있음
+					  m =  KoreaMember.builder()
+							 .id(rs.getString("id"))
+							.pwd(rs.getString("pwd"))
+							.name(rs.getString("name"))
+							.age(rs.getInt("age"))
+							.gender(rs.getString("gender"))
+							.email(rs.getString("email"))
+							.build();
+				  }
+				  
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				ConnectionHelper.close(rs);
+				ConnectionHelper.close(pstmt);
+				//Pool에게 반환
+				ConnectionHelper.close(conn);
+			}
+			return m;
+		}
 
 		//전체조회
 		public List<KoreaMember> getMemberList(){

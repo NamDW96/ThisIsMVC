@@ -14,6 +14,7 @@ import kr.or.kosa.action.ActionForward;
 import kr.or.kosa.service.MemberAddService;
 import kr.or.kosa.service.MemberDeleteService;
 import kr.or.kosa.service.MemberListService;
+import kr.or.kosa.service.MemberRegisterFormService;
 import kr.or.kosa.service.MemberSearchListByNameService;
 import kr.or.kosa.service.MemberUpdateService;
 import kr.or.kosa.service.MvcLoginService;
@@ -70,6 +71,10 @@ public class MemberController extends HttpServlet {
     	} else if(urlcommand.equals("/memberdelete.do")) {
     	    // 회원삭제
     	    action = new MemberDeleteService();
+    	    forward = action.execute(request, response);
+    	} else if(urlcommand.equals("/registerform.do")) {
+    	    // 회원가입, 수정 view
+    	    action = new MemberRegisterFormService();
     	    forward = action.execute(request, response);
     	}
     	
