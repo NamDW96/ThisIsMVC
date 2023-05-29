@@ -12,6 +12,71 @@ import kr.or.kosa.utils.ConnectionHelper;
 
 public class KoreaMemberDao {
 
+		//로그인 - id 조회
+		public String isKoreaMemberId(String id) {
+			String isKoreaMemberId = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "select id from koreaMember where id=?";
+			Connection conn = null;
+			try {
+				  conn = ConnectionHelper.getConnection("oracle");
+				  pstmt = conn.prepareStatement(sql);
+				  pstmt.setString(1, id);
+				  		
+				  rs = pstmt.executeQuery();
+				  if(rs.next()) {
+					  //id 있음
+					  isKoreaMemberId = "true";
+				  }else {
+					  //id 없음
+					  isKoreaMemberId = "false";
+				  }
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				ConnectionHelper.close(rs);
+				ConnectionHelper.close(pstmt);
+				//Pool에게 반환
+				ConnectionHelper.close(conn);
+			}
+			return isKoreaMemberId;
+		}
+		
+		//로그인 - id, password 조회
+		public String isKoreaMemberIdPwd(String id, String pwd) {
+			String isKoreaMemberId = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "select id from koreaMember where id=? AND pwd=?";
+			Connection conn = null;
+			try {
+				  conn = ConnectionHelper.getConnection("oracle");
+				  pstmt = conn.prepareStatement(sql);
+				  pstmt.setString(1, id);
+				  pstmt.setString(2, pwd);
+				  		
+				  rs = pstmt.executeQuery();
+				  if(rs.next()) {
+					  //id, password 있음
+					  isKoreaMemberId = "true";
+				  }else {
+					  //id, password 없음
+					  isKoreaMemberId = "false";
+				  }
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				ConnectionHelper.close(rs);
+				ConnectionHelper.close(pstmt);
+				//Pool에게 반환
+				ConnectionHelper.close(conn);
+			}
+			return isKoreaMemberId;
+		}
+	
 	//전체조회
 		public List<KoreaMember> getMemoList(){
 			
