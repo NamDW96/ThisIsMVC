@@ -11,7 +11,7 @@
 				<a href="memberRegister.do?id=${member.id}">수정</a>
 			</div>
 			<div class="col-md-3">
-				<a href="delete.do?id=${member.id}">삭제</a>
+				<a href="memberdelete.do?id=${member.id}">삭제</a>
 			</div>
 		</div>
 	</c:forEach>
