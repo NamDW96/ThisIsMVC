@@ -43,8 +43,9 @@ public class MemberAddService implements Action {
   		  msg="회원가입 실패";  		  
   	  }
   	  
-  	  request.setAttribute("board_msg", msg);  	  
-  	  request.setAttribute("pagePath", "/WEB-INF/views/joinForm.jsp");
+  	  request.setAttribute("board_msg", msg); 
+  	  request.setAttribute("id", id);
+  	  request.setAttribute("pagePath", "/WEB-INF/views/loginOk.jsp");
   	  
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);

@@ -23,7 +23,7 @@ public class MemberRegisterFormService implements Action {
 			request.setAttribute("mode", "register");
 		}
 		
-		request.setAttribute("pagePath", "/WEB-INF/views/memberlist.jsp");
+		request.setAttribute("pagePath", "/WEB-INF/views/joinForm.jsp");
 		
 	  	ActionForward forward = new ActionForward();
 	  	forward.setRedirect(false);

@@ -17,47 +17,34 @@ memberid = (String) request.getAttribute("id");
 <title>Hello World</title>
 </head>
 <body>
-	<div class="wrapper text-center">
-		<div class="container table border">
-			<div class="row header border">
-				<%@ include file="/WEB-INF/views/header.jsp"%>
+	<div class="container roomy-50">
+
+		<div class="row header border">
+			<%@ include file="/WEB-INF/views/header.jsp"%>
+		</div>
+		<div class="row main roomy-50 text-center">
+			<div class="col-md-2 border">
+				<%@ include file="/WEB-INF/views/left.jsp"%>
 			</div>
-			<div class="row main">
-				<div class="col-md-2 border">
-					<%@ include file="/WEB-INF/views/left.jsp"%>
-				</div>
-				<div class="col-md-10 border">
-					<c:set var="pagePath" value="${requestScope.pagePath}" />
-					<c:choose>
-						<c:when test="${empty pagePath}">
-							<a href="memberlist.do">방가방가</a>
-						</c:when>
-						<c:otherwise>
-							<jsp:include page="${pagePath}" />
-						</c:otherwise>
-					</c:choose>
-				</div>
-				<div class="col-md-10 border">
-					<c:set var="board_msg" value="${requestScope.board_msg}" />
-					<c:choose>
-						<c:when test="${empty board_msg}">
-							<div>
-								<h3>메시지가 없습니다.</h3>
-							</div>
-						</c:when>
-						<c:otherwise>
-							<div>
-								<h3>${board_msg}</h3>
-							</div>
-						</c:otherwise>
-					</c:choose>
-				</div>
-			</div>
-			<div class="row footer border">
-				<%@ include file="/WEB-INF/views/footer.jsp"%>
+			<div class="col-md-10 border p-3">
+				<c:set var="pagePath" value="${requestScope.pagePath}"/>
+				<c:choose>
+					<c:when test="${empty pagePath}"> 
+						<a href="memberlist.do">방가방가</a>
+						<jsp:include page="/WEB-INF/views/joinForm.jsp"/>
+					</c:when>					
+					<c:otherwise>
+						<jsp:include page="${pagePath}"/>
+					</c:otherwise>					
+				</c:choose>				
 			</div>
 		</div>
+		<div class="row border footer p-3">
+			<%@ include file="/WEB-INF/views/footer.jsp"%>
+		</div>
+
 	</div>
+	
 
 
 

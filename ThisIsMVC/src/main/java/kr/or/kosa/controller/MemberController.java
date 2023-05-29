@@ -81,7 +81,7 @@ public class MemberController extends HttpServlet {
 			action = new MemberSearchListByNameService();
 			forward = action.execute(request, response);
 
-		} else if (urlcommand.equals("/memberupdate.do")) {
+		} else if (urlcommand.equals("/memberUpdate.do")) {
 			// 회원수정
 			action = new MemberUpdateService();
 			forward = action.execute(request, response);
@@ -91,7 +91,7 @@ public class MemberController extends HttpServlet {
 			action = new MemberDeleteService();
 			forward = action.execute(request, response);
 
-		} else if (urlcommand.equals("/registerform.do")) {
+		} else if (urlcommand.equals("/memberRegister.do")) {
 			// 회원가입, 수정 view
 			action = new MemberRegisterFormService();
 			forward = action.execute(request, response);

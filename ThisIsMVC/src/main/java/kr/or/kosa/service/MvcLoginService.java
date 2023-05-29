@@ -32,12 +32,15 @@ public class MvcLoginService implements Action {
 		        }
 			} else {
 				msg = "패스워드가 틀립니다.";
+				url="### 미완성 ###"; // 동우가 만들었겠지
 			}
 		} else {
 			msg = "아이디가 없습니다.";
+			url="### 미완성 ###"; // 동우가 만들었겠지
 		}
 		
 		request.setAttribute("board_msg", msg);
+		request.setAttribute("pagePath", "/WEB-INF/views/loginOk.jsp");
 		
 	  	ActionForward forward = new ActionForward();
 	  	forward.setRedirect(false);
