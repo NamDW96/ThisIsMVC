@@ -1,50 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<h3>회원가입</h3>
+
 <form action="register.do" method="post">
-	<div class="container table">
-	<div class="row">
-		<div class="col-md-2">ID:</div>
-		<div class="col-md-10">
-			<input type="text" id="id" name="id" value="${requestScope.member.id}">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">PWD:</div>
-		<div class="col-md-10">
-			<input type="password" id="pwd" name="pwd" value="${requestScope.member.pwd}">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">Name:</div>
-		<div class="col-md-10">
-			<input type="text" id="name" name="name" value="${requestScope.member.name}">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">age:</div>
-		<div class="col-md-10">
-			<input type="text" id="age" name="age" placeholder="숫자만 입력하세요" value="${requestScope.member.age}">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">Gender:</div>
-		<div class="col-md-10">
-			<input type="radio" name="gender" id="women" value="여" checked>여자 
-			<input type="radio" name="gender" id="man" value="남">남자
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">Email:</div>
-		<div class="col-md-10">
-			<input type="text" id="email" name="email" value="${requestScope.member.email}">
-		</div>
-	</div>
-	<div class="row">
-		<input type="submit" value="회원가입">
-		<input type="reset" value="취소">
-	</div>
-</div>
+	<table class="container table table-borderless">
+		<thead class="text-center">
+				<h3>회원가입</h3>
+		</thead>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4">
+				ID : <input type="text" id="id" name="id" value="${requestScope.member.id}">
+			</td>
+			<td class="col-md-4"></td>
+		</tr>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4">
+				PWD : <input type="password" id="pwd" name="pwd" value="${requestScope.member.pwd}">
+			</td>
+			<td class="col-md-4"></td>
+		</tr>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4">
+				Name : <input type="text" id="name" name="name" value="${requestScope.member.name}">
+			</td>
+			<td class="col-md-4"></td>
+		</tr>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4">
+				age : <input type="text" id="age" name="age" placeholder="숫자만 입력하세요" value="${requestScope.member.age}">
+			</td>
+			<td class="col-md-4"></td>
+		</tr>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4">
+				Gender : <input type="radio" name="gender" id="women" value="여" checked>여자 
+				<input type="radio" name="gender" id="man" value="남">남자
+			</td>
+			<td class="col-md-4"></td>
+		</tr>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4">
+				Email : <input type="text" id="email" name="email" value="${requestScope.member.email}">
+			</td>
+			<td class="col-md-4"></td>		
+		</tr>
+		<tr class="row">
+			<td><input type="submit" value="회원가입"></td>
+			<td><input type="reset" value="취소"></td>
+		</tr>
+	</table>
 </form>
 
 <script>
