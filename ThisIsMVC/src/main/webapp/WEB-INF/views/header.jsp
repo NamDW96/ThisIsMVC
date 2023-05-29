@@ -7,7 +7,7 @@ id = (String) request.getAttribute("id");
 %>
 
 	<div class="col-md-1 p-3 text-center">
-		<a href="main.do">Main</a>
+		<a href="main.jsp">Main</a>
 	</div>
 	<div class="col-md-1 p-3 text-center">
 		<a href="memberRegister.do">Register</a>

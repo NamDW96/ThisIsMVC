@@ -17,24 +17,19 @@ public class MemberDeleteService implements Action {
 	  KoreaMemberDao dao = new KoreaMemberDao();
   	  int result = dao.deleteMember(id);
   	  
-  	  //규칙 (성공,실패하던  msg 작성되고 조건에 이동하는 페이지가 생성)
   	  String msg="";
-  	  String url="";
-  	  
   	  if(result > 0) {
   		  msg="삭제 성공";
-  		  url="MemoList.memo"; //요청 서블릿 주소
   	  }else {
   		  msg="삭제 실패";
-  		  url="memo.html";
   	  }
   	  
-  	  request.setAttribute("board_msg", msg);
-  	  request.setAttribute("board_url", url);
-  	  
+  	  request.setAttribute("msg", msg);
+  	  request.setAttribute("pagePath", "/WEB-INF/views/memberlist.jsp");
+  	
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);
-  	  forward.setPath("/WEB-INF/views/redirect.jsp"); //동우가 만들었겠지
+  	  forward.setPath("/main.jsp"); 
   	  
   	  return forward;
 	}

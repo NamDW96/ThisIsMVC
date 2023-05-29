@@ -38,14 +38,16 @@ public class MemberAddService implements Action {
   	  String msg="";
   	  String url="";
   	  if(result > 0) {
-  		  msg="회원가입 성공";  		  
+  		  msg = "회원가입 성공";  	
+  		  url =  "/WEB-INF/views/loginOk.jsp";
   	  }else {
-  		  msg="회원가입 실패";  		  
+  		  msg="회원가입 실패";	
+  		  url =  "/WEB-INF/views/joinForm.jsp";
   	  }
   	  
-  	  request.setAttribute("board_msg", msg); 
+  	  request.setAttribute("msg", msg); 
   	  request.setAttribute("id", id);
-  	  request.setAttribute("pagePath", "/WEB-INF/views/loginOk.jsp");
+  	  request.setAttribute("pagePath", url);
   	  
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);
