@@ -12,6 +12,71 @@ import kr.or.kosa.utils.ConnectionHelper;
 
 public class KoreaMemberDao {
 
+		//로그인 - id 조회
+		public String isKoreaMemberId(String id) {
+			String isKoreaMemberId = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "select id from koreaMember where id=?";
+			Connection conn = null;
+			try {
+				  conn = ConnectionHelper.getConnection("oracle");
+				  pstmt = conn.prepareStatement(sql);
+				  pstmt.setString(1, id);
+				  		
+				  rs = pstmt.executeQuery();
+				  if(rs.next()) {
+					  //id 있음
+					  isKoreaMemberId = "true";
+				  }else {
+					  //id 없음
+					  isKoreaMemberId = "false";
+				  }
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				ConnectionHelper.close(rs);
+				ConnectionHelper.close(pstmt);
+				//Pool에게 반환
+				ConnectionHelper.close(conn);
+			}
+			return isKoreaMemberId;
+		}
+		
+		//로그인 - id, password 조회
+		public String isKoreaMemberIdPwd(String id, String pwd) {
+			String isKoreaMemberId = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "select id from koreaMember where id=? AND pwd=?";
+			Connection conn = null;
+			try {
+				  conn = ConnectionHelper.getConnection("oracle");
+				  pstmt = conn.prepareStatement(sql);
+				  pstmt.setString(1, id);
+				  pstmt.setString(2, pwd);
+				  		
+				  rs = pstmt.executeQuery();
+				  if(rs.next()) {
+					  //id, password 있음
+					  isKoreaMemberId = "true";
+				  }else {
+					  //id, password 없음
+					  isKoreaMemberId = "false";
+				  }
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			} finally {
+				ConnectionHelper.close(rs);
+				ConnectionHelper.close(pstmt);
+				//Pool에게 반환
+				ConnectionHelper.close(conn);
+			}
+			return isKoreaMemberId;
+		}
+
 		//전체조회
 		public List<KoreaMember> getMemberList(){
 			
@@ -193,8 +258,52 @@ public class KoreaMemberDao {
 		}
 		
 		//검색
-		public KoreaMember searchByName(String name) {
-			return null;
+		public List<KoreaMember> searchByName(String name) {
+			List<KoreaMember> memberlist = null;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				conn = ConnectionHelper.getConnection("oracle");
+				String sql="select id,pwd,name,age,gender,email from koreaMember where name like ?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, "%" + name + "%");
+				
+				ResultSet rs = pstmt.executeQuery();
+				
+				memberlist = new ArrayList<KoreaMember>(); //POINT
+				
+				while(rs.next()) {
+					KoreaMember m = KoreaMember.builder()
+									.id(rs.getString("id"))
+									.pwd(rs.getString("pwd"))
+									.name(rs.getString("name"))
+									.age(rs.getInt("age"))
+									.gender(rs.getString("gender"))
+									.email(rs.getString("email"))
+									.build();
+
+					memberlist.add(m);
+									
+				}
+				
+				ConnectionHelper.close(rs);
+				ConnectionHelper.close(pstmt);
+				
+				//Pool에게 반환
+				ConnectionHelper.close(conn);
+					
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+				e.getStackTrace();
+				
+			}finally {
+				ConnectionHelper.close(pstmt);
+				ConnectionHelper.close(conn);//반환
+			}
+			
+			return memberlist;
 		}
 		
 }
