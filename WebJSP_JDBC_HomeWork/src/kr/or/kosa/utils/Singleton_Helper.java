@@ -1,4 +1,4 @@
-package kr.or.bit.utils;
+package kr.or.kosa.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
