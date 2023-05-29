@@ -13,7 +13,7 @@
 	<a href="login.do">Login</a>
 </div>
 <div class="col-md-1">
-	<a href="join.do">Register</a>
+	<a href="WEB-INF/views/joinForm.jsp">Register</a>
 </div>
 <div class="col-md-6"></div>
 <div class="col-md-2"></div>

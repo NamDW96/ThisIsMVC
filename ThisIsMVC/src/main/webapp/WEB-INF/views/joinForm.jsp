@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h3>회원가입</h3>
-<div class="container table">
+<form action="register.do" method="post">
+	<div class="container table">
 	<div class="row">
 		<div class="col-md-2">ID:</div>
 		<div class="col-md-10">
@@ -17,7 +18,7 @@
 	<div class="row">
 		<div class="col-md-2">Name:</div>
 		<div class="col-md-10">
-			<input type="text" id="usrname" name="usrname">
+			<input type="text" id="name" name="name">
 		</div>
 	</div>
 	<div class="row">
@@ -44,3 +45,4 @@
 		<input type="reset" value="취소">
 	</div>
 </div>
+</form>
