@@ -20,25 +20,26 @@ memberid = (String) request.getAttribute("id");
 	<div class="wrapper text-center">
 		<div class="container table border">
 			<div class="row header border">
-				<%@ include file="/views/header.jsp"%>
+				<%@ include file="/WEB-INF/views/header.jsp"%>
 			</div>
 			<div class="row main">
 				<div class="col-md-2 border">
-					<%@ include file="/views/left.jsp"%>
+					<%@ include file="/WEB-INF/views/left.jsp"%>
 				</div>
 				<div class="col-md-10 border">
+					<c:set var="pagePath" value="${requestScope.pagePath}"/>
 					<c:choose>
-						<c:when test="${empty id}">
-							회원가입좀 해라
-						</c:when>
+						<c:when test="${empty pagePath}"> 
+							<a href="memberlist.do">방가방가</a> 
+						</c:when>					
 						<c:otherwise>
-							[${id}]님 방가방가
-						</c:otherwise>
-					</c:choose>
+							<jsp:include page="${pagePath}"/>
+						</c:otherwise>					
+					</c:choose>				
 				</div>
 			</div>
 			<div class="row footer border">
-				<%@ include file="/views/footer.jsp"%>
+				<%@ include file="/WEB-INF/views/footer.jsp"%>
 			</div>
 		</div>
 	</div>

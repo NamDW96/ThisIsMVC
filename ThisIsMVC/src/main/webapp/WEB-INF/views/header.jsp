@@ -13,7 +13,7 @@
 	<a href="login.do">Login</a>
 </div>
 <div class="col-md-1">
-	<a href="register.do">Register</a>
+	<a href="join.do">Register</a>
 </div>
 <div class="col-md-6"></div>
 <div class="col-md-2"></div>
