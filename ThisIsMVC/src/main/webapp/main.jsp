@@ -31,7 +31,7 @@ memberid = (String) request.getAttribute("id");
 					<c:choose>
 						<c:when test="${empty pagePath}"> 
 							<a href="memberlist.do">방가방가</a>		
-							<jsp:include page="/joinForm.jsp"/>					
+							<jsp:include page="/WEB-INF/views/joinForm.jsp"/>					
 						</c:when>					
 						<c:otherwise>
 							<jsp:include page="${pagePath}"/>

@@ -8,7 +8,7 @@
 				<div class="col-md-3">${member.id}</div>
 				<div class="col-md-3">${member.ip}</div>
 				<div class="col-md-3">
-					<a href="edit.do?id=${memeber.id}">수정</a>
+					<a href="registerform.do?id=${member.id}">수정</a>
 				</div>
 				<div class="col-md-3">
 					<a href="delete.do?id=${member.id}">삭제</a>

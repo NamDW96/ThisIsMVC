@@ -51,27 +51,34 @@ public class MemberController extends HttpServlet {
     	if(urlcommand.equals("/register.do")) {
     	    // 회원가입
     	    action = new MemberAddService();
-    	    forward = action.execute(request, response);
+    	    forward = action.execute(request, response);    	    
+    	   
     	} else if(urlcommand.equals("/mcvlogin.do")) {
     	    // 로그인
     	    action = new MvcLoginService();
     	    forward = action.execute(request, response);
+    	    
     	} else if(urlcommand.equals("/memberlist.do")) {
     	    // 회원정보
     	    action = new MemberListService();
     	    forward = action.execute(request, response);
-    	} else if(urlcommand.equals("/memberlist.do")) {
+    	    
+    	} else if(urlcommand.equals("/memberlistByName.do")) {
     	    // 회원검색
     	    action = new MemberSearchListByNameService();
     	    forward = action.execute(request, response);
-    	} else if(urlcommand.equals("/memberupdate.do")) {
+    	    
+    	} else if(urlcommand.equals("/update.do")) {
     	    // 회원수정
     	    action = new MemberUpdateService();
     	    forward = action.execute(request, response);
+    	    
     	} else if(urlcommand.equals("/memberdelete.do")) {
     	    // 회원삭제
     	    action = new MemberDeleteService();
     	    forward = action.execute(request, response);
+    	    
+    	    
     	} else if(urlcommand.equals("/registerform.do")) {
     	    // 회원가입, 수정 view
     	    action = new MemberRegisterFormService();
