@@ -29,8 +29,7 @@ public class MemberDeleteService implements Action {
   		  url="memo.html";
   	  }
   	  
-  	  request.setAttribute("board_msg", msg);
-  	  request.setAttribute("board_url", url);
+  	  request.setAttribute("msg", msg);
   	  
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);

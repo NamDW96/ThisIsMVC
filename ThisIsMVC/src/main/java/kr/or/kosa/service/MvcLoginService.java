@@ -39,7 +39,7 @@ public class MvcLoginService implements Action {
 			url="### 미완성 ###"; // 동우가 만들었겠지
 		}
 		
-		request.setAttribute("board_msg", msg);
+		request.setAttribute("msg", msg);
 		request.setAttribute("pagePath", "/WEB-INF/views/loginOk.jsp");
 		
 	  	ActionForward forward = new ActionForward();
