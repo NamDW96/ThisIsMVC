@@ -15,7 +15,7 @@ public class MvcLoginViewService implements Action {
 		try {
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/WEB-INF/views/login.jsp");
+			forward.setPath("/WEB-INF/views/loginForm.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
