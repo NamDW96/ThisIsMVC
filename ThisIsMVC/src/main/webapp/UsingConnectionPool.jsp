@@ -37,15 +37,15 @@
 	    //그래서 POOL 객체의 scope >> method 로 한정 ....>> 사용하고 반환하자 ...
 	    
 	    KoreaMemberDao mydao = new KoreaMemberDao();
-	    KoreaMember m = KoreaMember.builder()
+	/*     KoreaMember m = KoreaMember.builder()
 				.id("hsh")
 				.pwd("hsh")
 				.name("5454545")
 				.age(29)
 				.gender("f")
 				.email("hsh")
-				.build();
-	    mydao.deleteMember("hsh");
+				.build(); */
+	    mydao.searchByName("admin");
 	
 	%>
 </body>
