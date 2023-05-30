@@ -9,7 +9,7 @@ a {
 </style>
 
 <div class="table">
-	<table class="table table-hover">
+	<table class="table">
 		<tr>
 			<th>ID</th>
 			<th>IP</th>
@@ -25,13 +25,18 @@ a {
 				<td><button class="btn btn-secondary rounded-pill px-3" type="button"><a href="memberdelete.do?id=${member.id}">삭제</a></button></td>
 			</tr>
 		</c:forEach>
+		<tr>
+			<td></td>
+			<td></td>
+			<form action="${pageContext.request.contextPath}/memberlist.do" method="post">
+				<td class="col-md-2"><input type="text" name="searchName" class="form-control" placeholder="이름을 검색해주세요"></td>
+				<td class="col-md-2"><button type="submit" class="btn btn-dark rounded-pill px-3" type="button">검색</button></td>
+			</form>
+			
+		</tr>
 	</table>
 	
 </div>
 <div><!-- 검색존 -->
-	<form action="${pageContext.request.contextPath}/memberlist.do" method="post">
-		<input type="text" name="searchName" class="form-control" placeholder="이름을 검색해주세요">
-		<button type="submit" class="btn btn-dark rounded-pill px-3" type="button">검색</button>
-		
-	</form>
+	
 </div>
