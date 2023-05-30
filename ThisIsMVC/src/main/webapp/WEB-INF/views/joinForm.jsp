@@ -47,7 +47,7 @@ body {
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
 				<div class="form-floating">
-				  <input type="text" class="form-control" id="age" name="age" value="${requestScope.member.age}" required>
+				  <input type="text" class="form-control" id="age" name="age" value="${requestScope.member.age}">
 				  <label for="floatingInput">Age</label>
 				</div>				
 			</td>
@@ -63,13 +63,18 @@ body {
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
-			<td class="col-md-4 mb-3">
+			<td class="col-md-4">
 				<div class="form-floating">
-				  <input type="email" class="form-control" id="email" name="email" value="${requestScope.member.email}" required>
+				  <input type="email" class="form-control" id="email" name="email" value="${requestScope.member.email}" onblur="validateEmail()">
 				  <label for="floatingInput">Email</label>
 				</div>	
 			</td>
 			<td class="col-md-4"></td>		
+		</tr>
+		<tr class="row">
+			<td class="col-md-4"></td>
+			<td class="col-md-4" id="warningMsg"></td>
+			<td class="col-md-4 mb-3"></td>		
 		</tr>
 		<tr class="row">
 			<td class="col-md-3"></td>
@@ -81,8 +86,7 @@ body {
 </form>
 
 <script>
-	const mode = "${requestScope.mode}";
-	console.log(mode);
+	const mode = "${requestScope.mode}";	
 	
 	if(mode == 'modify'){//수정모드
 		//회원정보 세팅
@@ -116,7 +120,17 @@ body {
 		
 		document.getElementsByTagName("h3")[0].innerText = "회원정보수정"
 		
-	}else{//회원가입 모드 
-		
 	}
+	
+	function validateEmail() {
+	      let email = document.getElementById("email").value;
+	      let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+	      let msg =  document.getElementById("warningMsg");
+	      if (!emailPattern.test(email)) {	       
+		    msg.innerText = "email 양식이 맞지 않습니다."
+		    msg.style.color = "red";
+	      } else {
+    	  	msg.innerText = "";
+	      }
+    }
 </script>
