@@ -301,7 +301,7 @@ public class KoreaMemberDao {
 			
 			try {
 				conn = ConnectionHelper.getConnection("oracle");
-				String sql="select id,pwd,name,age,gender,email from koreaMember where name like ?";
+				String sql="select id,pwd,name,age,gender,email,ip from koreaMember where name like ?";
 				pstmt = conn.prepareStatement(sql);
 				
 				pstmt.setString(1, "%" + name + "%");
@@ -318,6 +318,7 @@ public class KoreaMemberDao {
 									.age(rs.getInt("age"))
 									.gender(rs.getString("gender"))
 									.email(rs.getString("email"))
+									.ip(rs.getString("ip"))
 									.build();
 
 					memberlist.add(m);

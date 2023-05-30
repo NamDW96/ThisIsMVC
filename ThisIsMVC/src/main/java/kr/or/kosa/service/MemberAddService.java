@@ -30,6 +30,7 @@ public class MemberAddService implements Action {
 					.age(age)
 					.gender(gender)
 					.email(email)
+					.ip(ip)
 					.build();
 	
   	  KoreaMemberDao dao = new KoreaMemberDao();
