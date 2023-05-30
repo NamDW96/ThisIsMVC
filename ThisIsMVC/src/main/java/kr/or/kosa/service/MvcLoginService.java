@@ -16,14 +16,13 @@ public class MvcLoginService implements Action {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String msg = "";
-	  	String url = "";
 		
 		KoreaMemberDao dao = new KoreaMemberDao();
-		String result = dao.isKoreaMemberId(id);
+		boolean idCheck = dao.isKoreaMemberId(id);
 		
-		if(result == "true") {
-			result = dao.isKoreaMemberIdPwd(id,pwd);
-			if(result == "true") {
+		if(idCheck) {
+			boolean pwdCheck = dao.isKoreaMemberIdPwd(id,pwd);
+			if(pwdCheck) {
 				msg = "로그인 성공";
 				// 세션 생성 및 속성 추가
 		        HttpSession session = request.getSession(); // 기존 세션이 있으면 리턴, 없으면 생성
@@ -32,11 +31,9 @@ public class MvcLoginService implements Action {
 		        }
 			} else {
 				msg = "패스워드가 틀립니다.";
-				url="### 미완성 ###"; // 동우가 만들었겠지
 			}
 		} else {
 			msg = "아이디가 없습니다.";
-			url="### 미완성 ###"; // 동우가 만들었겠지
 		}
 		
 		request.setAttribute("msg", msg);
