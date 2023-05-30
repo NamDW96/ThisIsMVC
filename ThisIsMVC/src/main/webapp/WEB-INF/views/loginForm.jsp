@@ -33,10 +33,11 @@
 			<td>
 				<button type="submit" class="btn btn-success">로그인</button>
 				<button type="reset" class="btn btn-danger">취소</button>
-				<button class="btn btn-warning" onclick = "location.href='memberRegister.do'">회원가입</button>
+				
 			</td>
 
 		</tr>
 		</tbody>
 	</table>
 </form>
+<button class="btn btn-warning" onclick = "location.href='memberRegister.do'">회원가입</button>

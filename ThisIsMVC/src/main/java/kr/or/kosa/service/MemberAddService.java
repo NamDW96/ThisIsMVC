@@ -26,7 +26,8 @@ public class MemberAddService implements Action {
 	  } else { //아이디가 중복되지 않는다면
 		  String pwd = request.getParameter("pwd");
 	  	  String name = request.getParameter("name");
-	  	  int age = Integer.parseInt(request.getParameter("age"));
+	  	  int age = 0;
+	  	  if(!request.getParameter("age").equals("")) age = Integer.parseInt(request.getParameter("age"));	  	  
 	  	  String gender = request.getParameter("gender");
 	  	  String email = request.getParameter("email");
 	  	  String ip = request.getHeader("X-Forwarded-For");
