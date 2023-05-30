@@ -16,9 +16,20 @@ memberid = (String) request.getAttribute("id");
 	crossorigin="anonymous">
 <title>Hello World</title>
 </head>
+<style>
+	.main {
+		min-height : 80vh;
+	}
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+</style>
 <body>
-	<div class="container roomy-50">
-
 		<div class="row header border">
 			<%@ include file="/WEB-INF/views/header.jsp"%>
 		</div>
@@ -45,15 +56,9 @@ memberid = (String) request.getAttribute("id");
 				</c:choose>				
 			</div>
 		</div>
-		<div class="row border footer p-3">
-			<%@ include file="/WEB-INF/views/footer.jsp"%>
+		<div class ="footer">
+		<%@ include file="/WEB-INF/views/footer.jsp"%>
 		</div>
-
-	</div>	
-	
-
-
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

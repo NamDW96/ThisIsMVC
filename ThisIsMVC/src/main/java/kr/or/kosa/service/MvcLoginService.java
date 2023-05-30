@@ -16,6 +16,7 @@ public class MvcLoginService implements Action {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String msg = "";
+		String url = "";
 		
 		KoreaMemberDao dao = new KoreaMemberDao();
 		boolean idCheck = dao.isKoreaMemberId(id);
@@ -28,16 +29,19 @@ public class MvcLoginService implements Action {
 		        HttpSession session = request.getSession(); // 기존 세션이 있으면 리턴, 없으면 생성
 		        if (session != null) {
 		            session.setAttribute("id", id);
+		            url = "/WEB-INF/views/loginOk.jsp";
 		        }
 			} else {
 				msg = "패스워드가 틀립니다.";
+				url = "/WEB-INF/views/loginForm.jsp";
 			}
 		} else {
 			msg = "아이디가 없습니다.";
+			url = "/WEB-INF/views/loginForm.jsp";
 		}
 		
 		request.setAttribute("msg", msg);
-		request.setAttribute("pagePath", "/WEB-INF/views/loginOk.jsp");
+		request.setAttribute("pagePath", url);
 		
 	  	ActionForward forward = new ActionForward();
 	  	forward.setRedirect(false);

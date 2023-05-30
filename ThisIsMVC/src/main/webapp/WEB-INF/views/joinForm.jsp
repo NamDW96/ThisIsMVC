@@ -76,13 +76,12 @@ body {
 			<td class="col-md-4" id="warningMsg"></td>
 			<td class="col-md-4 mb-3"></td>		
 		</tr>
-		<tr class="row">
-			<td class="col-md-3"></td>
-			<td class="col-md-3"><input type="submit" value="제출"></td>
-			<td class="col-md-3"><input type="reset" value="취소"></td>
-			<td class="col-md-3"></td>
-		</tr>
 	</table>
+	<div>
+		<button type="submit" class="btn btn-success">회원가입</button>
+		<button type="reset" class="btn btn-danger">취소</button>
+		<button class="btn btn-warning" onclick = "location.href='login.do'">로그인</button>
+	</div>
 </form>
 
 <script>
@@ -133,4 +132,5 @@ body {
     	  	msg.innerText = "";
 	      }
     }
+	
 </script>

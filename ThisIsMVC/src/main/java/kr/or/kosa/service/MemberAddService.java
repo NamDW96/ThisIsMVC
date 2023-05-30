@@ -14,8 +14,8 @@ public class MemberAddService implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 	  
-
 	  String id = request.getParameter("id");
+
 	  KoreaMemberDao dao = new KoreaMemberDao();
 	  String msg="";
   	  String url="";
@@ -38,6 +38,7 @@ public class MemberAddService implements Action {
 						.age(age)
 						.gender(gender)
 						.email(email)
+						.ip(ip)
 						.build();		
 	  	  
 	  	  int result = dao.insertMember(m);
