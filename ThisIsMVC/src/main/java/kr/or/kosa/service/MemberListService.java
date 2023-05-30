@@ -15,7 +15,7 @@ public class MemberListService implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 	  
-		String name = request.getParameter("name");
+		String name = request.getParameter("searchName");
 		KoreaMemberDao dao = new KoreaMemberDao();
 		List<KoreaMember> memberList =null;
 		

@@ -29,9 +29,15 @@ memberid = (String) request.getAttribute("id");
 			<div class="col-md-10 border p-3">
 				<c:set var="pagePath" value="${requestScope.pagePath}"/>
 				<c:choose>
-					<c:when test="${empty pagePath}"> 
-						<a href="memberlist.do">방가방가</a>
-						<jsp:include page="/WEB-INF/views/joinForm.jsp"/>
+					<c:when test="${empty pagePath}">
+						<c:choose>
+							<c:when test="${empty sessionScope.id}">
+								<jsp:include page="/WEB-INF/views/loginForm.jsp"/>
+							</c:when>
+							<c:otherwise>
+								<jsp:include page="/WEB-INF/views/loginOk.jsp"/>
+							</c:otherwise>
+						</c:choose>												
 					</c:when>					
 					<c:otherwise>
 						<jsp:include page="${pagePath}"/>
@@ -43,7 +49,7 @@ memberid = (String) request.getAttribute("id");
 			<%@ include file="/WEB-INF/views/footer.jsp"%>
 		</div>
 
-	</div>
+	</div>	
 	
 
 

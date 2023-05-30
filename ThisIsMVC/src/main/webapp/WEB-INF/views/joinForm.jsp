@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+/* @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
 
+body {
+    font-family: 'Dongle', sans-serif;
+    font-size: 2.75rem;
+} */
+</style>
 <form action="register.do" method="post">
 	<table class="container table table-borderless">
 		<thead class="text-center">
@@ -9,28 +16,40 @@
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				ID : <input type="text" id="id" name="id" value="${requestScope.member.id}">
+				<div class="form-floating">
+				  <input type="text" class="form-control" id="id" name="id" value="${requestScope.member.id}" required>
+				  <label for="floatingInput">ID</label>
+				</div>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				PWD : <input type="password" id="pwd" name="pwd" value="${requestScope.member.pwd}">
+				<div class="form-floating">
+				  <input type="password" class="form-control" id="pwd" name="pwd" value="${requestScope.member.pwd}" required>
+				  <label for="floatingInput">Password</label>
+				</div>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				Name : <input type="text" id="name" name="name" value="${requestScope.member.name}">
+				<div class="form-floating">
+				  <input type="text" class="form-control" id="name" name="name" value="${requestScope.member.name}" required>
+				  <label for="floatingInput">Name</label>
+				</div>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				age : <input type="text" id="age" name="age" placeholder="숫자만 입력하세요" value="${requestScope.member.age}">
+				<div class="form-floating">
+				  <input type="text" class="form-control" id="age" name="age" value="${requestScope.member.age}" required>
+				  <label for="floatingInput">Age</label>
+				</div>				
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
@@ -44,14 +63,19 @@
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
-			<td class="col-md-4">
-				Email : <input type="text" id="email" name="email" value="${requestScope.member.email}">
+			<td class="col-md-4 mb-3">
+				<div class="form-floating">
+				  <input type="email" class="form-control" id="email" name="email" value="${requestScope.member.email}" required>
+				  <label for="floatingInput">Email</label>
+				</div>	
 			</td>
 			<td class="col-md-4"></td>		
 		</tr>
 		<tr class="row">
-			<td><input type="submit" value="회원가입"></td>
-			<td><input type="reset" value="취소"></td>
+			<td class="col-md-3"></td>
+			<td class="col-md-3"><input type="submit" value="제출"></td>
+			<td class="col-md-3"><input type="reset" value="취소"></td>
+			<td class="col-md-3"></td>
 		</tr>
 	</table>
 </form>

@@ -36,11 +36,11 @@ public class MemberUpdateService implements Action {
   	  }
   	  
   	  request.setAttribute("msg", msg);
-  	  request.setAttribute("pagePath", "/WEB-INF/views/memberlist.jsp");
+//  	  request.setAttribute("pagePath", "/WEB-INF/views/memberlist.jsp");
   	  
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);
-  	  forward.setPath("/main.jsp"); //동우가 만들었겠지
+  	  forward.setPath("/memberlist.do"); //동우가 만들었겠지
   	  
   	  return forward;
 	}
