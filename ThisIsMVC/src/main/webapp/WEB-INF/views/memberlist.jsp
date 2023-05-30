@@ -15,10 +15,10 @@
 			</div>
 		</div>
 	</c:forEach>
-	<div><!-- 검색존 -->
-		<form action="${pageContext.request.contextPath}/memberlist.do" method="post">
-			<input type ="text" name = "name">
-			<input type="submit" value="검색">
-		</form>
-	</div>
+</div>
+<div><!-- 검색존 -->
+	<form action="${pageContext.request.contextPath}/memberlist.do" method="post">
+		<input type ="text" name="name">
+		<input type="submit" value="검색">
+	</form>
 </div>

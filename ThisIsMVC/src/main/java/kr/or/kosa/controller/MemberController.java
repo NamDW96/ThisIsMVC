@@ -76,11 +76,6 @@ public class MemberController extends HttpServlet {
 			action = new MemberListService();
 			forward = action.execute(request, response);
 
-		} else if (urlcommand.equals("/memberlist.do")) {
-			// 회원검색
-			action = new MemberSearchListByNameService();
-			forward = action.execute(request, response);
-
 		} else if (urlcommand.equals("/memberUpdate.do")) {
 			// 회원수정
 			action = new MemberUpdateService();
