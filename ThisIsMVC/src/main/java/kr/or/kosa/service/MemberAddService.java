@@ -16,40 +16,48 @@ public class MemberAddService implements Action {
 	  
 
 	  String id = request.getParameter("id");
-  	  String pwd = request.getParameter("pwd");
-  	  String name = request.getParameter("name");
-  	  int age = Integer.parseInt(request.getParameter("age"));
-  	  String gender = request.getParameter("gender");
-  	  String email = request.getParameter("email");
-  	  String ip = request.getHeader("X-Forwarded-For");
-		
-  	  KoreaMember m = KoreaMember.builder()
-					.id(id)
-					.pwd(pwd)
-					.name(name)
-					.age(age)
-					.gender(gender)
-					.email(email)
-					.build();
-	
-  	  KoreaMemberDao dao = new KoreaMemberDao();
-  	  int result = dao.insertMember(m);
-  	  
-  	  //규칙 (성공,실패하던  msg 작성되고 조건에 이동하는 페이지가 생성)
-  	  String msg="";
+	  KoreaMemberDao dao = new KoreaMemberDao();
+	  String msg="";
   	  String url="";
-  	  if(result > 0) {
-  		  msg = "회원가입 성공";  	
-  		  url =  "/WEB-INF/views/loginOk.jsp";
-  	  }else {
-  		  msg = "회원가입 실패";	
+  	  
+	  if(dao.isKoreaMemberId(id)) { // 아이디가 중복이라면
+		  msg = "이미 사용중인 아이디입니다";	
   		  url = "/WEB-INF/views/joinForm.jsp";
-  	  }
-  	  
-  	  HttpSession session = request.getSession(); // 기존 세션이 있으면 리턴, 없으면 생성
-      session.setAttribute("id", id);
-  	  
-  	  request.setAttribute("msg", msg);   	  
+	  } else { //아이디가 중복되지 않는다면
+		  String pwd = request.getParameter("pwd");
+	  	  String name = request.getParameter("name");
+	  	  int age = Integer.parseInt(request.getParameter("age"));
+	  	  String gender = request.getParameter("gender");
+	  	  String email = request.getParameter("email");
+	  	  String ip = request.getHeader("X-Forwarded-For");
+			
+	  	  KoreaMember m = KoreaMember.builder()
+						.id(id)
+						.pwd(pwd)
+						.name(name)
+						.age(age)
+						.gender(gender)
+						.email(email)
+						.build();		
+	  	  
+	  	  int result = dao.insertMember(m);
+	  	  
+	  	  //규칙 (성공,실패하던  msg 작성되고 조건에 이동하는 페이지가 생성)
+	  	 
+	  	  if(result > 0) {
+	  		  msg = "회원가입 성공";  	
+	  		  url =  "/WEB-INF/views/loginOk.jsp";
+	  	  }else {
+	  		  msg = "회원가입 실패";	
+	  		  url = "/WEB-INF/views/joinForm.jsp";
+	  	  }
+	  	  
+	  	  HttpSession session = request.getSession(); // 기존 세션이 있으면 리턴, 없으면 생성
+	      session.setAttribute("id", id);  	  
+		  
+	  } 
+	  
+	  request.setAttribute("msg", msg);   	  
   	  request.setAttribute("pagePath", url);
   	  
   	  ActionForward forward = new ActionForward();
