@@ -2,6 +2,7 @@ package kr.or.kosa.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.kosa.action.Action;
 import kr.or.kosa.action.ActionForward;
@@ -41,12 +42,14 @@ public class MemberAddService implements Action {
   		  msg = "회원가입 성공";  	
   		  url =  "/WEB-INF/views/loginOk.jsp";
   	  }else {
-  		  msg="회원가입 실패";	
-  		  url =  "/WEB-INF/views/joinForm.jsp";
+  		  msg = "회원가입 실패";	
+  		  url = "/WEB-INF/views/joinForm.jsp";
   	  }
   	  
-  	  request.setAttribute("msg", msg); 
-  	  request.setAttribute("id", id);
+  	  HttpSession session = request.getSession(); // 기존 세션이 있으면 리턴, 없으면 생성
+      session.setAttribute("id", id);
+  	  
+  	  request.setAttribute("msg", msg);   	  
   	  request.setAttribute("pagePath", url);
   	  
   	  ActionForward forward = new ActionForward();

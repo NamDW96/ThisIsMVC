@@ -29,7 +29,7 @@ public class MemberDeleteService implements Action {
   	
   	  ActionForward forward = new ActionForward();
   	  forward.setRedirect(false);
-  	  forward.setPath("/main.jsp"); 
+  	  forward.setPath("/memberlist.do"); 
   	  
   	  return forward;
 	}
