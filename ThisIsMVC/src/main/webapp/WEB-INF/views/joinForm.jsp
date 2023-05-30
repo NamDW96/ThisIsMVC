@@ -86,7 +86,7 @@ body {
 
 <script>
 	const mode = "${requestScope.mode}";	
-	
+	console.log(mode);
 	if(mode == 'modify'){//수정모드
 		//회원정보 세팅
 		let form = document.querySelectorAll('form')[0];
@@ -103,8 +103,8 @@ body {
 		}
 
 		//버튼명 바꾸기
-		let submitButton = document.querySelectorAll('input[type="submit"]')[0];
-		submitButton.value = '수정하기'
+		let submitButton = document.querySelectorAll('button[type="submit"]')[0];
+		submitButton.value = '수정하기';
 
 		//input태그 막기
 		let inputId = document.getElementById("id");
