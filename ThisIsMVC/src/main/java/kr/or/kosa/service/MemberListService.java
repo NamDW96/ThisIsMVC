@@ -15,14 +15,22 @@ public class MemberListService implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 	  
+		String name = request.getParameter("name");
 		KoreaMemberDao dao = new KoreaMemberDao();
-		List<KoreaMember> memberList = dao.getMemberList();
+		List<KoreaMember> memberList =null;
+		
+		if(name!=null) {//전체검색
+			memberList = dao.getMemberList();
+		}else {	//조건검색(이름검색)
+			memberList = dao.searchByName(name);
+		}
+		
 		request.setAttribute("memberList", memberList);
 		request.setAttribute("pagePath", "/WEB-INF/views/memberlist.jsp");
   
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/main.jsp"); //동우가 만들었겠지
+		forward.setPath("/main.jsp"); 
   
 		return forward;
 	}

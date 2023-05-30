@@ -64,7 +64,7 @@
 		//회원정보 세팅
 		let form = document.querySelectorAll('form')[0];
 		const gender = "${requestScope.member.gender.trim()}";		
-		form.action = "/ThisIsMVC/memberUpdate.do";
+		form.action = "${pageContext.request.contextPath}/memberUpdate.do";
 		
 		console.log(gender);
 		console.log(typeof(gender));
