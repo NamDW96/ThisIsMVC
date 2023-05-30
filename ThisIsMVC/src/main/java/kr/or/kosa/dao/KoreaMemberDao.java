@@ -213,16 +213,23 @@ public class KoreaMemberDao {
 
 			try {
 				conn = ConnectionHelper.getConnection("oracle");
-				String sql="insert into koreaMember(id,pwd,name,age,gender,email,ip) values(?,?,?,?,?,?,?)";
-				pstmt = conn.prepareStatement(sql);
+				String sql;
+				if(m.getAge() != 0) {
+					sql="insert into koreaMember(id,pwd,name,gender,email,ip,age) values(?,?,?,?,?,?,?)";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(7,m.getAge());
+				} else {
+					sql="insert into koreaMember(id,pwd,name,gender,email,ip) values(?,?,?,?,?,?)";
+					pstmt = conn.prepareStatement(sql);
+				}			
 				
 				pstmt.setString(1,m.getId());
 				pstmt.setString(2,m.getPwd());
-				pstmt.setString(3,m.getName());
-				pstmt.setInt(4,m.getAge());
-				pstmt.setString(5,m.getGender());
-				pstmt.setString(6,m.getEmail());
-				pstmt.setString(7,m.getIp());
+				pstmt.setString(3,m.getName());				
+				pstmt.setString(4,m.getGender());
+				pstmt.setString(5,m.getEmail());
+				pstmt.setString(6,m.getIp());
+				
 				
 				resultrow = pstmt.executeUpdate();
 			

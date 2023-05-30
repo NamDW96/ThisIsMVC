@@ -47,7 +47,7 @@ body {
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
 				<div class="form-floating">
-				  <input type="text" class="form-control" id="age" name="age" value="${requestScope.member.age}">
+				  <input type="number" min=1 class="form-control" id="age" name="age" value="${requestScope.member.age}">
 				  <label for="floatingInput">Age</label>
 				</div>				
 			</td>
@@ -77,13 +77,12 @@ body {
 			<td class="col-md-4 mb-3"></td>		
 		</tr>
 	</table>
-	<div>
-		<button type="submit" class="btn btn-success">회원가입</button>
-		<button type="reset" class="btn btn-danger">취소</button>
-		<button class="btn btn-warning" onclick = "location.href='login.do'">로그인</button>
+	<div class="mb-4">
+		<button type="submit" id="submit" class="btn btn-success">제출</button>
+		<button type="reset" class="btn btn-danger">취소</button>		
 	</div>
 </form>
-
+<button class="btn btn-warning" onclick = "location.href='login.do'">로그인</button>
 <script>
 	const mode = "${requestScope.mode}";	
 	console.log(mode);
@@ -125,11 +124,13 @@ body {
 	      let email = document.getElementById("email").value;
 	      let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	      let msg =  document.getElementById("warningMsg");
-	      if (!emailPattern.test(email)) {	       
+	      if (!emailPattern.test(email) && email != '') {	       
 		    msg.innerText = "email 양식이 맞지 않습니다."
 		    msg.style.color = "red";
+		    document.getElementById("submit").disabled = true;
 	      } else {
     	  	msg.innerText = "";
+    	  	document.getElementById("submit").disabled = false;
 	      }
     }
 	
