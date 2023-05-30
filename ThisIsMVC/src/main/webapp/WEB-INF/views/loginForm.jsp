@@ -11,7 +11,7 @@
 				<td class="col-md-4"></td>
 				<td class="col-md-4">
 					<div class="form-floating">
-					  <input type="text" class="form-control" id="id" name="id" placeholder="name@example.com">
+					  <input type="text" class="form-control" id="id" name="id" placeholder="name@example.com" required>
 					  <label for="floatingInput">ID</label>
 					</div>
 				</td>
@@ -21,7 +21,7 @@
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
 				<div class="form-floating mb-3">
-				  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="name@example.com">
+				  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="name@example.com" required>
 				  <label for="floatingInput">Password</label>
 				</div>
 			</td>
@@ -31,9 +31,9 @@
 		<tr>
 			<td></td>
 			<td>
-				<input type="submit" value="로그인">
-				<input type="reset" value="뭘 취소하는거지?">
-				<input type="reset" value="회원가입" onclick = "location.href='memberRegister.do'">
+				<button type="submit" class="btn btn-success">로그인</button>
+				<button type="reset" class="btn btn-danger">취소</button>
+				<button class="btn btn-warning" onclick = "location.href='memberRegister.do'">회원가입</button>
 			</td>
 
 		</tr>

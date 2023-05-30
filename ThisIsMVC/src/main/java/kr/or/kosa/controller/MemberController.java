@@ -15,7 +15,6 @@ import kr.or.kosa.service.MemberAddService;
 import kr.or.kosa.service.MemberDeleteService;
 import kr.or.kosa.service.MemberListService;
 import kr.or.kosa.service.MemberRegisterFormService;
-import kr.or.kosa.service.MemberSearchListByNameService;
 import kr.or.kosa.service.MemberUpdateService;
 import kr.or.kosa.service.MvcLoginService;
 import kr.or.kosa.service.MvcLoginViewService;
@@ -31,13 +30,7 @@ public class MemberController extends HttpServlet {
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 1.한글
-		// 2.데이터 받기
-		// 3.요청 판단하기 ... 판단에 따른 서비스 실행
-		// 4.데이터 담기
-		// 5.뷰지정
-		// 6.뷰 forward
-
+	
 		request.setCharacterEncoding("UTF-8");
 
 		String requestUri = request.getRequestURI();

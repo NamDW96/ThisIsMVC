@@ -13,8 +13,8 @@ import kr.or.kosa.utils.ConnectionHelper;
 public class KoreaMemberDao {
 
 		//로그인 - id 조회
-		public String isKoreaMemberId(String id) {
-			String isKoreaMemberId = null;
+		public boolean isKoreaMemberId(String id) {
+			
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
@@ -27,11 +27,9 @@ public class KoreaMemberDao {
 				  		
 				  rs = pstmt.executeQuery();
 				  if(rs.next()) {
-					  //id 있음
-					  isKoreaMemberId = "true";
+					  return true;
 				  }else {
-					  //id 없음
-					  isKoreaMemberId = "false";
+					  return false;
 				  }
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -40,13 +38,14 @@ public class KoreaMemberDao {
 				ConnectionHelper.close(pstmt);
 				//Pool에게 반환
 				ConnectionHelper.close(conn);
+				
 			}
-			return isKoreaMemberId;
+			return false;
 		}
 		
 		//로그인 - id, password 조회
-		public String isKoreaMemberIdPwd(String id, String pwd) {
-			String isKoreaMemberId = null;
+		public boolean isKoreaMemberIdPwd(String id, String pwd) {
+
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
@@ -60,11 +59,10 @@ public class KoreaMemberDao {
 				  		
 				  rs = pstmt.executeQuery();
 				  if(rs.next()) {
-					  //id, password 있음
-					  isKoreaMemberId = "true";
+					  return true;
 				  }else {
 					  //id, password 없음
-					  isKoreaMemberId = "false";
+					  return false;
 				  }
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -74,7 +72,7 @@ public class KoreaMemberDao {
 				//Pool에게 반환
 				ConnectionHelper.close(conn);
 			}
-			return isKoreaMemberId;
+			return false;
 		}
 		
 		public KoreaMember getKoreaMemberById(String id) {

@@ -25,6 +25,7 @@ a {
 				<td><button class="btn btn-secondary rounded-pill px-3" type="button"><a href="memberdelete.do?id=${member.id}">삭제</a></button></td>
 			</tr>
 		</c:forEach>
+		<!-- 검색존 -->
 		<tr>
 			<td></td>
 			<td></td>
@@ -35,8 +36,5 @@ a {
 			
 		</tr>
 	</table>
-	
-</div>
-<div><!-- 검색존 -->
 	
 </div>
