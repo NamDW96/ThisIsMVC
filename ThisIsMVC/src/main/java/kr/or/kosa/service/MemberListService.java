@@ -19,7 +19,7 @@ public class MemberListService implements Action {
 		KoreaMemberDao dao = new KoreaMemberDao();
 		List<KoreaMember> memberList =null;
 		
-		if(name!=null) {//전체검색
+		if(name == null) {//전체검색
 			memberList = dao.getMemberList();
 		}else {	//조건검색(이름검색)
 			memberList = dao.searchByName(name);
