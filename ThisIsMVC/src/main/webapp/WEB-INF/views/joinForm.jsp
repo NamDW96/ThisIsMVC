@@ -9,28 +9,28 @@
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				ID : <input type="text" id="id" name="id" value="${requestScope.member.id}">
+				ID : <input type="text" id="id" name="id" value="${requestScope.member.id}" required>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				PWD : <input type="password" id="pwd" name="pwd" value="${requestScope.member.pwd}">
+				PWD : <input type="password" id="pwd" name="pwd" value="${requestScope.member.pwd}" required>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				Name : <input type="text" id="name" name="name" value="${requestScope.member.name}">
+				Name : <input type="text" id="name" name="name" value="${requestScope.member.name}" required>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				age : <input type="text" id="age" name="age" placeholder="숫자만 입력하세요" value="${requestScope.member.age}">
+				age : <input type="text" id="age" name="age" placeholder="숫자만 입력하세요" value="${requestScope.member.age}" required>
 			</td>
 			<td class="col-md-4"></td>
 		</tr>
@@ -45,12 +45,12 @@
 		<tr class="row">
 			<td class="col-md-4"></td>
 			<td class="col-md-4">
-				Email : <input type="text" id="email" name="email" value="${requestScope.member.email}">
+				Email : <input type="text" id="email" name="email" value="${requestScope.member.email}" required>
 			</td>
 			<td class="col-md-4"></td>		
 		</tr>
 		<tr class="row">
-			<td><input type="submit" value="회원가입"></td>
+			<td><input type="submit" value="제출"></td>
 			<td><input type="reset" value="취소"></td>
 		</tr>
 	</table>
